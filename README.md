@@ -58,9 +58,7 @@ chmod +x gcp-connect.sh
 ```
 
 ## Modo de Uso 🏃‍♂️
-Puedes ejecutar el script de dos maneras:
-
-Uso Interactivo (Recomendado)
+Uso Interactivo
 Simplemente ejecuta el script sin argumentos. Aparecerán menús interactivos para que selecciones el proyecto y la instancia.
 
 
