@@ -22,10 +22,10 @@ fi
 
 network_name=$name
 echo -e "Borrando la regla antigua...\n"
-gcloud compute --project=$project firewall-rules delete roadwarrior-beservices-${USER}-$name --quiet
+gcloud compute --project=$project firewall-rules delete roadwarrior-${USER}-$name --quiet
 
 echo -e "Creando nueva regla de firewall...\n"
-gcloud compute --project=$project firewall-rules create roadwarrior-beservices-${USER}-$name --direction=INGRESS --priority=1000 --network=$name --action=ALLOW --rules=tcp:3389,tcp:2222,tcp:443,tcp:81,tcp:80,tcp:22 --source-ranges=`curl ifconfig.me/ip`/32
+gcloud compute --project=$project firewall-rules create roadwarrior-${USER}-$name --direction=INGRESS --priority=1000 --network=$name --action=ALLOW --rules=tcp:3389,tcp:2222,tcp:443,tcp:81,tcp:80,tcp:22 --source-ranges=`curl ifconfig.me/ip`/32
 
 instance=($(gcloud compute instances list ${project_name} | peco --initial-index 1))
 name=${instance[0]}
